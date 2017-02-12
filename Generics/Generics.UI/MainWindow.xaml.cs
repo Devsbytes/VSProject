@@ -5,6 +5,7 @@ using System.Windows.Documents;
 using Generics.Common;
 using Generics.Common.Factory;
 using Generics.Common.Interface;
+using Generics.Repository.PersonRepository;
 
 namespace Generics.UI
 {
@@ -35,6 +36,14 @@ namespace Generics.UI
 
         private void RepositoryButton_Click(object sender, RoutedEventArgs e)
         {
+            //IPersonRepository repository = new PersonServiceRepository();
+            //IEnumerable<Person> people = repository.GetPeople();
+
+            IRepository<Person, string> repository = new GenericPersonServiceRepository();
+            IEnumerable<Person> people = repository.GetItems();
+
+            foreach (var person in people)
+                PersonListBox.Items.Add(person);
 
         }
 
