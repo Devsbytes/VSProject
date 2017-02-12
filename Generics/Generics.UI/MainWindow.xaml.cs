@@ -17,12 +17,20 @@ namespace Generics.UI
 
         private void NonGenericButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            ArrayList people = People.GetNonGenericPeople();
+            //people.Add("Hello");
+            //people.Add(122);
+            //foreach (var person in people)
+            foreach (object person in people)
+                PersonListBox.Items.Add(person);
         }
 
         private void GenericButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            List<Person> people = People.GetGenericPeople();
+            //foreach (var person in people)
+            foreach (Person person in people)
+                PersonListBox.Items.Add(person);
         }
 
         private void RepositoryButton_Click(object sender, RoutedEventArgs e)
